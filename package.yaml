@@ -1,0 +1,68 @@
+name:                AOC2016
+version:             0.1.0.0
+github:              "b1g3ar5/AOC2016"
+license:             BSD3
+author:              "Nick Straw"
+maintainer:          "nick@broxholme.com"
+copyright:           "N J Straw"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/b1g3ar5/AOC2016#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- split
+- timeit
+- vector
+- unordered-containers
+- groups
+- hashable
+- deepseq
+- cryptonite
+- bytestring
+- text
+- utf8-string
+- MemoTrie
+- data-fix
+- search-algorithms
+- MissingH
+#- memory
+
+default-extensions: GHC2021
+
+library:
+  source-dirs: src
+
+executables:
+  AOC2016-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -O2
+    dependencies:
+    - AOC2016
+
+tests:
+  AOC2016-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - AOC2016
